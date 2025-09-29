@@ -30,65 +30,36 @@ model, scaler = load_model()
 # -----------------------------
 st.set_page_config(page_title="Soil Whisperer", layout="wide")
 
-# Custom CSS
+# Inject custom CSS for Soil Whisperer look
 st.markdown("""
-<style>
-/* General */
-body {
-    background-color: #f9fafb;
-    font-family: "Segoe UI", Roboto, sans-serif;
-}
-
-/* Hero section */
-.hero {
-    position: relative;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)),
-                url('https://images.unsplash.com/photo-1600320841810-3b2a2d80a3c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-    background-size: cover;
-    background-position: center;
-    border-radius: 1rem;
-    padding: 4rem 2rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    color: white;
-}
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-}
-.hero p {
-    font-size: 1.2rem;
-    opacity: 0.9;
-}
-
-/* Card style */
-.card {
-    background: white;
-    border-radius: 1rem;
-    padding: 2rem;
-    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
-    margin-bottom: 2rem;
-}
-
-/* Result card */
-.result-card {
-    background: linear-gradient(135deg, #d1fae5, #f0fdf4);
-    border: 1px solid #bbf7d0;
-    border-radius: 1rem;
-    padding: 2rem;
-    text-align: center;
-    transition: all 0.3s ease-in-out;
-}
-.result-card h2 {
-    color: #166534;
-    font-size: 2.2rem;
-    margin: 0;
-}
-.result-card p {
-    color: #374151;
-    margin-top: 0.5rem;
-}
-</style>
+    <style>
+    .hero {
+        position: relative;
+        background: linear-gradient(rgba(34, 197, 94, 0.8), rgba(34, 197, 94, 0.5)),
+                    url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+        background-size: cover;
+        background-position: center;
+        padding: 4rem 2rem;
+        text-align: center;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+        color: white;
+    }
+    .card {
+        background: white;
+        border-radius: 1rem;
+        padding: 2rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        margin-bottom: 2rem;
+    }
+    .result-card {
+        background: linear-gradient(135deg, #e0f7e9, #f9fff9);
+        border: 1px solid #b2dfdb;
+        border-radius: 1rem;
+        padding: 2rem;
+        text-align: center;
+    }
+    </style>
 """, unsafe_allow_html=True)
 
 # -----------------------------
@@ -96,8 +67,8 @@ body {
 # -----------------------------
 st.markdown("""
 <div class="hero">
-    <h1>🌱 Soil Whisperer</h1>
-    <p>Smarter crop recommendations for healthier yields.</p>
+    <h1 style="font-size:3rem; margin-bottom:0.5rem;">🌱 Soil Whisperer</h1>
+    <p style="font-size:1.25rem;">Smart crop recommendations tailored to your soil and climate.</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -136,14 +107,28 @@ if predict_btn:
     st.markdown(
         f"""
         <div class="result-card">
-            <h2>{prediction[0]}</h2>
-            <p>This crop is optimal for your current environmental conditions.</p>
+            <h2 style="color:#2e7d32; margin:0; font-size:2rem;">{prediction[0]}</h2>
+            <p style="color:#555;">This crop is optimal for your current environmental conditions.</p>
         </div>
         """,
         unsafe_allow_html=True,
     )
     st.markdown('</div>', unsafe_allow_html=True)
 
+# -----------------------------
+# Info Section (Card)
+# -----------------------------
+st.markdown('<div class="card">', unsafe_allow_html=True)
+st.subheader("ℹ️ How it Works")
+st.write("""
+Our AI model analyzes seven key environmental factors:
+- **Soil nutrients**: Nitrogen (N), Phosphorus (P), Potassium (K)  
+- **Climate conditions**: Temperature, Humidity, Rainfall  
+- **Soil chemistry**: pH value  
+
+The system is trained on agricultural data to provide region-specific recommendations.
+""")
+st.markdown('</div>', unsafe_allow_html=True)
 # -----------------------------
 # Info Section (Card)
 # -----------------------------
