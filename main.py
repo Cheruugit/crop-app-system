@@ -30,7 +30,7 @@ model, scaler = load_model()
 # -----------------------------
 st.set_page_config(page_title="Crop Recommendation System", layout="wide")
 
-# Custom CSS - full green theme
+# Custom CSS - polished green theme
 st.markdown("""
 <style>
 body {
@@ -41,7 +41,10 @@ body {
 /* Hero section */
 .hero {
     position: relative;
-    background: linear-gradient(135deg, #166534, #22c55e);
+    background: linear-gradient(rgba(22, 101, 52, 0.85), rgba(22, 101, 52, 0.85)),
+                url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
     border-radius: 1rem;
     padding: 4rem 2rem;
     text-align: center;
@@ -121,7 +124,7 @@ div.stButton > button:hover {
 st.markdown("""
 <div class="hero">
     <h1>🌱 Crop Recommendation System</h1>
-    <p>Green-powered crop recommendations for sustainable farming.</p>
+    <p>AI-powered recommendations for smarter and greener farming.</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -134,14 +137,14 @@ st.subheader("🌿 Enter Soil & Climate Data")
 col1, col2 = st.columns(2)
 
 with col1:
-    N = st.number_input("🌿 Nitrogen (N)", 0, 200, 50)
-    P = st.number_input("🌿 Phosphorus (P)", 0, 200, 30)
-    K = st.number_input("🌿 Potassium (K)", 0, 200, 40)
+    N = st.number_input("🟢 Nitrogen (N)", 0, 200, 50)
+    P = st.number_input("🟡 Phosphorus (P)", 0, 200, 30)
+    K = st.number_input("🟤 Potassium (K)", 0, 200, 40)
     temperature = st.number_input("🌡️ Temperature (°C)", 0.0, 50.0, 25.0)
 
 with col2:
     humidity = st.number_input("💧 Humidity (%)", 0.0, 100.0, 50.0)
-    ph = st.number_input("🧪 pH value", 0.0, 14.0, 6.5)
+    ph = st.number_input("🧪 Soil pH", 0.0, 14.0, 6.5)
     rainfall = st.number_input("🌧️ Rainfall (mm)", 0.0, 500.0, 100.0)
 
 predict_btn = st.button("🌾 Recommend Crop", use_container_width=True)
@@ -176,9 +179,13 @@ st.subheader("🌿 How it Works")
 st.write("""
 Our AI-powered model analyzes **seven environmental factors**:  
 
-- 🌿 **Soil nutrients**: Nitrogen (N), Phosphorus (P), Potassium (K)  
-- 🌡️ **Climate**: Temperature, Humidity, Rainfall  
-- 🧪 **Soil chemistry**: pH value  
+- 🟢 **Nitrogen (N)**  
+- 🟡 **Phosphorus (P)**  
+- 🟤 **Potassium (K)**  
+- 🌡️ **Temperature**  
+- 💧 **Humidity**  
+- 🌧️ **Rainfall**  
+- 🧪 **Soil pH**  
 
 The system is trained on agricultural datasets to provide **region-specific crop recommendations**.
 """)
