@@ -121,20 +121,6 @@ if predict_btn:
 st.markdown('<div class="card">', unsafe_allow_html=True)
 st.subheader("ℹ️ How it Works")
 st.write("""
-Our AI model analyzes seven key environmental factors:
-- **Soil nutrients**: Nitrogen (N), Phosphorus (P), Potassium (K)  
-- **Climate conditions**: Temperature, Humidity, Rainfall  
-- **Soil chemistry**: pH value  
-
-The system is trained on agricultural data to provide region-specific recommendations.
-""")
-st.markdown('</div>', unsafe_allow_html=True)
-# -----------------------------
-# Info Section (Card)
-# -----------------------------
-st.markdown('<div class="card">', unsafe_allow_html=True)
-st.subheader("ℹ️ How it Works")
-st.write("""
 Our AI-powered model analyzes **seven environmental factors**:  
 
 - 🌿 **Soil nutrients**: Nitrogen (N), Phosphorus (P), Potassium (K)  
@@ -144,3 +130,4 @@ Our AI-powered model analyzes **seven environmental factors**:
 By learning from agricultural datasets, the system provides reliable, region-specific crop recommendations.  
 """)
 st.markdown('</div>', unsafe_allow_html=True)
+
