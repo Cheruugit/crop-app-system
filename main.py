@@ -30,36 +30,79 @@ model, scaler = load_model()
 # -----------------------------
 st.set_page_config(page_title="Soil Whisperer", layout="wide")
 
-# Inject custom CSS for Soil Whisperer look
+# Custom CSS with green theme
 st.markdown("""
-    <style>
-    .hero {
-        position: relative;
-        background: linear-gradient(rgba(34, 197, 94, 0.8), rgba(34, 197, 94, 0.5)),
-                    url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-        background-size: cover;
-        background-position: center;
-        padding: 4rem 2rem;
-        text-align: center;
-        border-radius: 1rem;
-        margin-bottom: 2rem;
-        color: white;
-    }
-    .card {
-        background: white;
-        border-radius: 1rem;
-        padding: 2rem;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        margin-bottom: 2rem;
-    }
-    .result-card {
-        background: linear-gradient(135deg, #e0f7e9, #f9fff9);
-        border: 1px solid #b2dfdb;
-        border-radius: 1rem;
-        padding: 2rem;
-        text-align: center;
-    }
-    </style>
+<style>
+/* Hero section */
+.hero {
+    position: relative;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)),
+                url('https://images.unsplash.com/photo-1600320841810-3b2a2d80a3c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    border-radius: 1rem;
+    padding: 4rem 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: white;
+}
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+.hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Card style */
+.card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+    margin-bottom: 2rem;
+}
+
+/* Section titles */
+h2, .st-subheader, .stMarkdown h2 {
+    color: #166534 !important; /* deep green */
+}
+
+/* Result card */
+.result-card {
+    background: linear-gradient(135deg, #dcfce7, #f0fdf4);
+    border: 1px solid #86efac;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+.result-card h2 {
+    color: #166534;
+    font-size: 2.2rem;
+    margin: 0;
+}
+.result-card p {
+    color: #374151;
+    margin-top: 0.5rem;
+}
+
+/* Green button */
+div.stButton > button {
+    background: linear-gradient(90deg, #16a34a, #22c55e);
+    color: white;
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    transition: background 0.3s ease;
+}
+div.stButton > button:hover {
+    background: linear-gradient(90deg, #15803d, #16a34a);
+}
+</style>
 """, unsafe_allow_html=True)
 
 # -----------------------------
@@ -67,8 +110,8 @@ st.markdown("""
 # -----------------------------
 st.markdown("""
 <div class="hero">
-    <h1 style="font-size:3rem; margin-bottom:0.5rem;">🌱 Soil Whisperer</h1>
-    <p style="font-size:1.25rem;">Smart crop recommendations tailored to your soil and climate.</p>
+    <h1>🌱 Soil Whisperer</h1>
+    <p>Smarter crop recommendations for healthier yields.</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -107,8 +150,8 @@ if predict_btn:
     st.markdown(
         f"""
         <div class="result-card">
-            <h2 style="color:#2e7d32; margin:0; font-size:2rem;">{prediction[0]}</h2>
-            <p style="color:#555;">This crop is optimal for your current environmental conditions.</p>
+            <h2>{prediction[0]}</h2>
+            <p>This crop is optimal for your current environmental conditions.</p>
         </div>
         """,
         unsafe_allow_html=True,
@@ -127,7 +170,6 @@ Our AI-powered model analyzes **seven environmental factors**:
 - 🌦️ **Climate**: Temperature, Humidity, Rainfall  
 - 🧪 **Soil chemistry**: pH value  
 
-By learning from agricultural datasets, the system provides reliable, region-specific crop recommendations.  
+The system is trained on agricultural datasets to provide **region-specific crop recommendations**.
 """)
 st.markdown('</div>', unsafe_allow_html=True)
-
