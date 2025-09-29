@@ -174,3 +174,4 @@ The system is trained on agricultural datasets to provide **region-specific crop
 """)
 st.markdown('</div>', unsafe_allow_html=True)
 
+
