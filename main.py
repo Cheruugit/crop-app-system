@@ -179,14 +179,15 @@ st.subheader("🌿 How it Works")
 st.write("""
 Our AI-powered model analyzes **seven environmental factors**:  
 
-- 🟢 **Nitrogen (N)**  
-- 🟡 **Phosphorus (P)**  
-- 🟤 **Potassium (K)**  
-- 🌡️ **Temperature**  
-- 💧 **Humidity**  
-- 🌧️ **Rainfall**  
-- 🧪 **Soil pH**  
+- **Nitrogen (N)**  
+- **Phosphorus (P)**  
+- **Potassium (K)**  
+- **Temperature**  
+- **Humidity**  
+- **Rainfall**  
+- **Soil pH**  
 
 The system is trained on agricultural datasets to provide **region-specific crop recommendations**.
 """)
 st.markdown('</div>', unsafe_allow_html=True)
+
