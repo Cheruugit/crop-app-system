@@ -28,7 +28,7 @@ model, scaler = load_model()
 # -----------------------------
 # Page config
 # -----------------------------
-st.set_page_config(page_title="Soil Whisperer", layout="wide")
+st.set_page_config(page_title="Crop Recommendation System", layout="wide")
 
 # Custom CSS with green theme
 st.markdown("""
@@ -173,3 +173,4 @@ Our AI-powered model analyzes **seven environmental factors**:
 The system is trained on agricultural datasets to provide **region-specific crop recommendations**.
 """)
 st.markdown('</div>', unsafe_allow_html=True)
+
