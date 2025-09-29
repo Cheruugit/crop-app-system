@@ -54,12 +54,12 @@ body {
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 0.5rem;
-    color: #bbf7d0;
+    color: #ffffff;   /* 🔥 changed from light green to white */
 }
 .hero p {
     font-size: 1.2rem;
     opacity: 0.95;
-    color: #e8fbe9;
+    color: #ffffff;   /* 🔥 make subtext white too */
 }
 
 /* Card style */
@@ -190,4 +190,5 @@ Our AI-powered model analyzes **seven environmental factors**:
 The system is trained on agricultural datasets to provide **region-specific crop recommendations**.
 """)
 st.markdown('</div>', unsafe_allow_html=True)
+
 
