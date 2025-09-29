@@ -30,16 +30,18 @@ model, scaler = load_model()
 # -----------------------------
 st.set_page_config(page_title="Crop Recommendation System", layout="wide")
 
-# Custom CSS with green theme
+# Custom CSS - full green theme
 st.markdown("""
 <style>
+body {
+    background-color: #f8fdf9;
+    font-family: "Segoe UI", Roboto, sans-serif;
+}
+
 /* Hero section */
 .hero {
     position: relative;
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.4)),
-                url('https://images.unsplash.com/photo-1600320841810-3b2a2d80a3c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
-    background-size: cover;
-    background-position: center;
+    background: linear-gradient(135deg, #166534, #22c55e);
     border-radius: 1rem;
     padding: 4rem 2rem;
     text-align: center;
@@ -49,10 +51,12 @@ st.markdown("""
 .hero h1 {
     font-size: 3rem;
     margin-bottom: 0.5rem;
+    color: #bbf7d0;
 }
 .hero p {
     font-size: 1.2rem;
-    opacity: 0.9;
+    opacity: 0.95;
+    color: #e8fbe9;
 }
 
 /* Card style */
@@ -65,18 +69,24 @@ st.markdown("""
 }
 
 /* Section titles */
-h2, .st-subheader, .stMarkdown h2 {
-    color: #166534 !important; /* deep green */
+h1, h2, h3, .st-subheader, .stMarkdown h2 {
+    color: #166534 !important;
+    font-weight: 600;
+}
+
+/* Input labels */
+label, .stNumberInput label, .stTextInput label {
+    color: #166534 !important;
+    font-weight: 500;
 }
 
 /* Result card */
 .result-card {
-    background: linear-gradient(135deg, #dcfce7, #f0fdf4);
-    border: 1px solid #86efac;
+    background: linear-gradient(135deg, #bbf7d0, #dcfce7);
+    border: 1px solid #22c55e;
     border-radius: 1rem;
     padding: 2rem;
     text-align: center;
-    transition: all 0.3s ease-in-out;
 }
 .result-card h2 {
     color: #166534;
@@ -90,7 +100,7 @@ h2, .st-subheader, .stMarkdown h2 {
 
 /* Green button */
 div.stButton > button {
-    background: linear-gradient(90deg, #16a34a, #22c55e);
+    background: linear-gradient(90deg, #15803d, #22c55e);
     color: white;
     border-radius: 0.5rem;
     padding: 0.75rem;
@@ -100,7 +110,7 @@ div.stButton > button {
     transition: background 0.3s ease;
 }
 div.stButton > button:hover {
-    background: linear-gradient(90deg, #15803d, #16a34a);
+    background: linear-gradient(90deg, #166534, #16a34a);
 }
 </style>
 """, unsafe_allow_html=True)
@@ -110,8 +120,8 @@ div.stButton > button:hover {
 # -----------------------------
 st.markdown("""
 <div class="hero">
-    <h1>🌱 Soil Whisperer</h1>
-    <p>Smarter crop recommendations for healthier yields.</p>
+    <h1>🌱 Crop Recommendation System</h1>
+    <p>Green-powered crop recommendations for sustainable farming.</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -119,20 +129,20 @@ st.markdown("""
 # Input Form (Card)
 # -----------------------------
 st.markdown('<div class="card">', unsafe_allow_html=True)
-st.subheader("📊 Enter Soil & Climate Data")
+st.subheader("🌿 Enter Soil & Climate Data")
 
 col1, col2 = st.columns(2)
 
 with col1:
-    N = st.number_input("Nitrogen (N)", 0, 200, 50)
-    P = st.number_input("Phosphorus (P)", 0, 200, 30)
-    K = st.number_input("Potassium (K)", 0, 200, 40)
-    temperature = st.number_input("Temperature (°C)", 0.0, 50.0, 25.0)
+    N = st.number_input("🌿 Nitrogen (N)", 0, 200, 50)
+    P = st.number_input("🌿 Phosphorus (P)", 0, 200, 30)
+    K = st.number_input("🌿 Potassium (K)", 0, 200, 40)
+    temperature = st.number_input("🌡️ Temperature (°C)", 0.0, 50.0, 25.0)
 
 with col2:
-    humidity = st.number_input("Humidity (%)", 0.0, 100.0, 50.0)
-    ph = st.number_input("pH value", 0.0, 14.0, 6.5)
-    rainfall = st.number_input("Rainfall (mm)", 0.0, 500.0, 100.0)
+    humidity = st.number_input("💧 Humidity (%)", 0.0, 100.0, 50.0)
+    ph = st.number_input("🧪 pH value", 0.0, 14.0, 6.5)
+    rainfall = st.number_input("🌧️ Rainfall (mm)", 0.0, 500.0, 100.0)
 
 predict_btn = st.button("🌾 Recommend Crop", use_container_width=True)
 st.markdown('</div>', unsafe_allow_html=True)
@@ -146,7 +156,7 @@ if predict_btn:
     prediction = model.predict(features_scaled)
 
     st.markdown('<div class="card">', unsafe_allow_html=True)
-    st.subheader("✅ Recommended Crop")
+    st.subheader("🌱 Recommended Crop")
     st.markdown(
         f"""
         <div class="result-card">
@@ -162,16 +172,14 @@ if predict_btn:
 # Info Section (Card)
 # -----------------------------
 st.markdown('<div class="card">', unsafe_allow_html=True)
-st.subheader("ℹ️ How it Works")
+st.subheader("🌿 How it Works")
 st.write("""
 Our AI-powered model analyzes **seven environmental factors**:  
 
 - 🌿 **Soil nutrients**: Nitrogen (N), Phosphorus (P), Potassium (K)  
-- 🌦️ **Climate**: Temperature, Humidity, Rainfall  
+- 🌡️ **Climate**: Temperature, Humidity, Rainfall  
 - 🧪 **Soil chemistry**: pH value  
 
 The system is trained on agricultural datasets to provide **region-specific crop recommendations**.
 """)
 st.markdown('</div>', unsafe_allow_html=True)
-
-
