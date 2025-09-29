@@ -62,6 +62,7 @@ body {
     color: #ffffff;   /* 🔥 make subtext white too */
 }
 
+
 /* Card style */
 .card {
     background: white;
@@ -190,5 +191,6 @@ Our AI-powered model analyzes **seven environmental factors**:
 The system is trained on agricultural datasets to provide **region-specific crop recommendations**.
 """)
 st.markdown('</div>', unsafe_allow_html=True)
+
 
 
